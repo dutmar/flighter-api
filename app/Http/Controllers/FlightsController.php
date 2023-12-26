@@ -73,4 +73,23 @@ class FlightsController extends Controller
             ['destination', $destination],
             ])->get();
     }
+
+    public function addFlightToCart($id) {
+        $flight = Flights::findOrFail($id);
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                'origin' => $flight->origin,
+                'destination' => $flight->destination,
+                'price' => $flight->price
+            ];
+        }
+
+        session()->put('cart', $cart);
+        //$this->info('this works');
+        return redirect()->back()->with('succes', 'flight added to cart');
+    }
 }
