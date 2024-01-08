@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FlightsController;
-use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +24,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::resource('flights', FlightsController::class);
-Route::resource('cart', CartController::class);
 
 Route::get('/flights/{id}', [FlightsController::class, 'addFlightToCart']);
 Route::get('/flights/search/{origin}', [FlightsController::class, 'search']);
