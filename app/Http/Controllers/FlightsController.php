@@ -65,7 +65,7 @@ class FlightsController extends Controller
             ])->get();
     }
 
-    //search flight by route
+    //search flights by route
     public function searchRoute(string $origin, string $destination)
     {
         return Flights::where([
@@ -74,22 +74,22 @@ class FlightsController extends Controller
             ])->get();
     }
 
-    public function addFlightToCart($id) {
-        $flight = Flights::findOrFail($id);
-        $cart = session()->get('cart', []);
+    // public function addFlightToCart($id) {
+    //     $flight = Flights::findOrFail($id);
+    //     $cart = session()->get('cart', []);
 
-        if(isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                'origin' => $flight->origin,
-                'destination' => $flight->destination,
-                'price' => $flight->price
-            ];
-        }
+    //     if(isset($cart[$id])) {
+    //         $cart[$id]['quantity']++;
+    //     } else {
+    //         $cart[$id] = [
+    //             'origin' => $flight->origin,
+    //             'destination' => $flight->destination,
+    //             'price' => $flight->price
+    //         ];
+    //     }
 
-        session()->put('cart', $cart);
-        //$this->info('this works');
-        return redirect()->back()->with('succes', 'flight added to cart');
-    }
+    //     session()->put('cart', $cart);
+    //     //$this->info('this works');
+    //     return redirect()->back()->with('succes', 'flight added to cart');
+    // }
 }

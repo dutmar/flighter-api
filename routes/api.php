@@ -25,7 +25,6 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::resource('flights', FlightsController::class);
 
-Route::get('/flights/{id}', [FlightsController::class, 'addFlightToCart']);
 Route::get('/flights/search/{origin}', [FlightsController::class, 'search']);
 Route::get('/flights/searchRoute/{origin}/{destination}', [FlightsController::class, 'searchRoute']);
 
