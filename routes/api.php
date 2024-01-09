@@ -31,10 +31,8 @@ Route::get('/flights/searchRoute/{origin}/{destination}', [FlightsController::cl
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
-
+    Route::get('flights', [FlightsController::class], 'index');
 });
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/flights', 'FlightsController@index');
