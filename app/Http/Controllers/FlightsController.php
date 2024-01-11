@@ -65,6 +65,15 @@ class FlightsController extends Controller
             ])->get();
     }
 
+    //possible flights from origin
+    public function searchFromOrigin(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Implement your search logic here
+        return Flights::where('origin', 'LIKE', $query)->get();
+    }
+
     //search flights by route
     public function searchRoute(string $origin, string $destination)
     {

@@ -23,15 +23,15 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::resource('flights', FlightsController::class);
 
-
-Route::get('/flights/search/{origin}', [FlightsController::class, 'search']);
+Route::get('/search/{origin}', [FlightsController::class, 'search']);
+Route::get('/searchTest', [FlightsController::class, 'searchFromOrigin']);
 Route::get('/flights/searchRoute/{origin}/{destination}', [FlightsController::class, 'searchRoute']);
 
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::resource('flights', FlightsController::class);
 });
 
 
