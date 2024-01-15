@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -62,5 +63,22 @@ class AuthController extends Controller
         return [
             'message' => 'Logged out'
         ];
+    }
+
+    public function Users() {
+        return User::all();
+    }
+
+    public function userInfo(Request $request) {
+        
+        //$name = Auth::user()->name;
+
+        //$name = Auth::name();
+
+        //$name = $request->user()->name();
+
+        $name = auth()->user()->name();
+
+        return $name;
     }
 }

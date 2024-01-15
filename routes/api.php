@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FlightsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,12 +27,15 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::resource('flights', FlightsController::class);
 
 Route::get('/search/{origin}', [FlightsController::class, 'search']);
-Route::get('/searchTest', [FlightsController::class, 'searchFromOrigin']);
+Route::get('/search', [FlightsController::class, 'searchFromOrigin']);
 Route::get('/flights/searchRoute/{origin}/{destination}', [FlightsController::class, 'searchRoute']);
+//Route::get('/user', [AuthController::class, 'userInfo']);
 
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/user', [AuthController::class, 'users']);
+    
 });
 
 
