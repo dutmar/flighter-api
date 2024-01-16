@@ -58,12 +58,12 @@ class FlightsController extends Controller
     }
 
     //search possible flights from origin
-    public function search(string $origin)
-    {
-        return Flights::where([
-            ['origin', $origin],
-            ])->get();
-    }
+    // public function search(string $origin)
+    // {
+    //     return Flights::where([
+    //         ['origin', $origin],
+    //         ])->get();
+    // }
 
     //possible flights from origin
     public function searchFromOrigin(Request $request)
@@ -71,8 +71,21 @@ class FlightsController extends Controller
         $query = $request->input('query');
 
         // Implement your search logic here
-        return Flights::where('origin', 'LIKE', $query)->get();
+        return Flights::where('origin', 'LIKE', "%$query%")->get();
     }
+
+    public function search(Request $request) {
+    $origin = $request->input('origin');
+    $destination = $request->input('destination');
+
+    return (Flights::when($origin, function ($query) use ($origin) {
+            return $query->where('origin', 'like', "%$origin%");
+        })
+        ->when($destination, function ($query) use ($destination) {
+            return $query->where('destination', 'like', "%$destination%");
+        })
+        ->get());
+}
 
     //search flights by route
     public function searchRoute(string $origin, string $destination)
