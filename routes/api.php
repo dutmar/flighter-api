@@ -26,11 +26,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 Route::resource('flights', FlightsController::class);
 
-//Route::get('/search/{origin}', [FlightsController::class, 'search']);
-Route::get('/searchTest', [FlightsController::class, 'searchFromOrigin']);
 Route::get('/search', [FlightsController::class, 'search']);
-//Route::get('/flights/searchRoute/{origin}/{destination}', [FlightsController::class, 'searchRoute']);
-//Route::get('/user', [AuthController::class, 'userInfo']);
+Route::get('/show/{id}', [FlightsController::class, 'show']);
 
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function() {
