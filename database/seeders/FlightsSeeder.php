@@ -57,6 +57,48 @@ class FlightsSeeder extends Seeder
                 'price' => 190.32,
                 'noOfSeats' => 198
             ],
+            [
+                'origin' => 'split',
+                'destination' => 'brussels',
+                'airline' => 'croatia airlines',
+                'price' => 111.38,
+                'noOfSeats' => 89
+            ],
+            [
+                'origin' => 'pula',
+                'destination' => 'amsterdam',
+                'airline' => 'easyjet',
+                'price' => 121.00,
+                'noOfSeats' => 168
+            ],
+            [
+                'origin' => 'venice',
+                'destination' => 'philadelphia',
+                'airline' => 'air serbia',
+                'price' => 313.32,
+                'noOfSeats' => 222
+            ],
+            [
+                'origin' => 'manchester',
+                'destination' => 'madrid',
+                'airline' => 'iberia',
+                'price' => 80.00,
+                'noOfSeats' => 161
+            ],
+            [
+                'origin' => 'lisbon',
+                'destination' => 'bogota',
+                'airline' => 'tap portugal',
+                'price' => 257.00,
+                'noOfSeats' => 198
+            ],
+            [
+                'origin' => 'medellin',
+                'destination' => 'miami',
+                'airline' => 'united airlines',
+                'price' => 73.43,
+                'noOfSeats' => 150
+            ],
         ];
 
         foreach($flights as $key => $value) {
