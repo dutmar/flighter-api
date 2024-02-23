@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TicketsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 // Route::post('/flights', [FlightsController::class, 'store']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/tickets', [TicketsController::class, 'store']);
 
 Route::resource('flights', FlightsController::class);
 
