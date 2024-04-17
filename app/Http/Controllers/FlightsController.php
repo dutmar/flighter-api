@@ -7,6 +7,30 @@ use App\Models\Flights;
 
 class FlightsController extends Controller
 {
+
+    public function add(Request $request) {
+        $fields = $request->validate([
+            'origin' => 'required|string',
+            'destination' => 'required|string',
+            'airline' => 'required|string',
+            'price' => 'required|string',
+            'noOfSeats' => 'required|string',
+        ]);
+
+        $flight = Flights::create([
+            'origin' => $fields['origin'],
+            'destination' => $fields['destination'],
+            'airline' => $fields['airline'],
+            'price' => $fields['price'],
+            'noOfSeats' => $fields['noOfSeats'],
+        ]);
+
+        $response = [
+            'flight' => $flight
+        ];
+
+        return response($response, 201);
+    }
     /**
      * Display a listing of the resource.
      */

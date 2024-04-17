@@ -14,25 +14,35 @@ class UsersSeeder extends Seeder
     public function run(): void
     {
         $users = [
+            // [
+            //     'name' => 'ja',
+            //     'email' => 'dutmar@gmail.com',
+            //     'password' => 'alanford69',
+            //     'admin_privilege' => 'false',
+            // ],
+            // [
+            //     'name' => 'ti',
+            //     'email' => 'dari@gmail.com',
+            //     'password' => 'alanford69',
+            //     'admin_privilege' => 'false',
+            // ],
+            // [
+            //     'name' => 'mi',
+            //     'email' => 'dado@gmail.com',
+            //     'password' => 'alanford69',
+            //     'admin_privilege' => 'false',
+            // ],
+            // [
+            //     'name' => 'oni',
+            //     'email' => 'daki@gmail.com',
+            //     'password' => 'alanford69',
+            //     'admin_privilege' => 'false',
+            // ],
             [
-                'name' => 'ja',
-                'email' => 'dutmar@gmail.com',
-                'password' => 'alanford69',
-            ],
-            [
-                'name' => 'ti',
-                'email' => 'dari@gmail.com',
-                'password' => 'alanford69',
-            ],
-            [
-                'name' => 'mi',
-                'email' => 'dado@gmail.com',
-                'password' => 'alanford69',
-            ],
-            [
-                'name' => 'oni',
-                'email' => 'daki@gmail.com',
-                'password' => 'alanford69',
+                'name' => 'admin',
+                'email' => 'admin@admin.com',
+                'password' => 'admin123',
+                'admin_privilege' => 'true',
             ]
         ];
 
