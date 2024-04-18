@@ -73,6 +73,19 @@ class FlightsController extends Controller
         return $flight;
     }
 
+    public function delete(Request $request)
+    {
+        $fields = $request->validate([
+            'id' => 'required'
+        ]);
+
+        $id = [
+            'id' => $fields['id']
+        ];
+
+        return Flights::destroy($id);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
