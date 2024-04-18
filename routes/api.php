@@ -25,10 +25,13 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+//admin functions
 Route::post('/add', [FlightsController::class, 'add']);
 Route::post('/delete', [FlightsController::class, 'delete']);
+Route::put('/update/{id}', [FlightsController::class, 'update']);
 
 Route::post('/tickets', [TicketsController::class, 'store']);
+Route::get('/tickets', [TicketsController::class, 'index']);
 
 Route::resource('flights', FlightsController::class);
 
