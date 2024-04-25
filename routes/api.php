@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FlightsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TicketsController;
-use App\Http\Controllers\StripeController;
+use App\Http\Controllers\StripePaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +38,8 @@ Route::resource('flights', FlightsController::class);
 
 Route::get('/search', [FlightsController::class, 'search']);
 Route::get('/show/{id}', [FlightsController::class, 'show']);
+
+Route::post('stripe', [StripePaymentController::class, 'stripePost']);
 
 //Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function() {
