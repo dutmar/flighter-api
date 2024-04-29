@@ -10,7 +10,6 @@ class StripePaymentController extends Controller
 {
     public function stripePost(Request $request) {
         try {
-            //$stripe = new \Stripe\StripeClient('sk_test_51P6x9BICSrlzlIyRF5PSlHZBHD3XQRmcTp8VqkqSoCFi9GkpC65xzmq2yoqPZ3TDhrCmnOPneGQg9JsxNeJJkoBO00wnDAlS2F');
             $stripe = new \Stripe\StripeClient(
                 env('STRIPE_SECRET')
             );
